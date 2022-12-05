@@ -23,12 +23,12 @@ const Loader = () => {
         </header>
         <section className="lg:max-w-[412px] m-auto mr-0">
           <ul className="grid grid-cols-3 justify-items-center gap-x-8 bg-[#f6f8ff] dark:bg-[#141c2f] pl-4 pr-7 md:px-8 py-4 rounded-lg">
-            <li className="text-xs text-[#4b6a9b] dark:text-white bg-slate-700 h-5 w-[100px] rounded-md"></li>
-            <li className="text-xs text-[#4b6a9b] dark:text-white bg-slate-700 h-5 w-[100px] rounded-md"></li>
-            <li className="text-xs text-[#4b6a9b] dark:text-white bg-slate-700 h-5 w-[100px] rounded-md"></li>
-            <li className="font-semibold mt-1 bg-slate-700 h-5 w-[70px] rounded-md"></li>
-            <li className="font-semibold mt-1 bg-slate-700 h-5 w-[70px] rounded-md"></li>
-            <li className="font-semibold mt-1 bg-slate-700 h-5 w-[70px] rounded-md"></li>
+            <li className="text-xs text-[#4b6a9b] dark:text-white bg-slate-600 h-5 w-[100px] rounded-md"></li>
+            <li className="text-xs text-[#4b6a9b] dark:text-white bg-slate-600 h-5 w-[100px] rounded-md"></li>
+            <li className="text-xs text-[#4b6a9b] dark:text-white bg-slate-600 h-5 w-[100px] rounded-md"></li>
+            <li className="font-semibold mt-1 bg-slate-600 h-5 w-[70px] rounded-md"></li>
+            <li className="font-semibold mt-1 bg-slate-600 h-5 w-[70px] rounded-md"></li>
+            <li className="font-semibold mt-1 bg-slate-600 h-5 w-[70px] rounded-md"></li>
           </ul>
            <ul className="grid md:grid-cols-2 gap-2 md:gap-y-0 gap-x-7 mt-6 text-xs md:text-sm justify-items-stretch text-slate-600">
             <li className={`flex items-center p-1`}>
