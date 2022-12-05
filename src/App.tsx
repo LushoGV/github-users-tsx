@@ -4,6 +4,7 @@ import { HiSun, HiMoon } from "react-icons/hi";
 import { iUser } from "./interfaces";
 import Card from "./components/Card";
 import Loader from "./components/Loader";
+import ErrorCard from './components/ErrorCard'
 
 const App:React.FC = () => {
   const [darkMode, setDarkMode] = useState<boolean>(true);
@@ -13,24 +14,26 @@ const App:React.FC = () => {
   const [inputContent, setInputContent] = useState<string>()
 
   const getUser = async (username: string | undefined): Promise<void> => {
+    setIsError(false); 
     if(username){
       setLoader(true)
       try {
         const response = await fetch(`https://api.github.com/users/${username}`);
         const data = await response.json(); 
-        setUserData(data);
+        setTimeout(()=> {
+          setLoader(false)
+        },1000)
+        if(response.status === 200){
+          setUserData(data);
+        }else{
+          setIsError(true); 
+        }    
       } catch (error) {
-        console.log(error);        
+        setIsError(true);        
       }
-      setTimeout(()=> {
-        setLoader(false)
-      },1000)
     } 
   };
 
-  // useEffect(() => {
-  //   getUser("lushogv");
-  // }, []);
   return (
     <>
       <header className="flex flex-col w-full">
@@ -56,8 +59,8 @@ const App:React.FC = () => {
       </header>
       <section>
         {loader && <Loader/>}
-        {isError && <h1>Error</h1>}       
-        {!loader && userData && (
+        {!loader && isError && <ErrorCard/>}
+        {!loader && !isError && userData && (
           <Card
             login={userData.login}
             name={userData.name}
