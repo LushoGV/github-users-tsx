@@ -21,7 +21,7 @@ const App:React.FC = () => {
             {theme === 'light' ? "light" : "dark"} {theme === 'light' ? <HiSun className="text-xl" /> : <HiMoon className="text-xl" />}
           </button>
         </div>
-        <form className="shadow-md dark:shadow-none dark:bg-[#1f2a48] flex items-center rounded-xl" onSubmit={(e) => {
+        <form className="shadow-md dark:shadow-none dark:bg-[#1f2a48] flex items-center rounded-xl border-[1px] border-gray-100 dark:border-0" onSubmit={(e) => {
           e.preventDefault()
           getUser(inputContent)
           }}>

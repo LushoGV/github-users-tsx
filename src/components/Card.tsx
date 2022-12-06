@@ -10,7 +10,7 @@ const Card: React.FC<iCardProps> = (props) => {
   const createdAt = `Joined ${dateCompleted.substring(8, 11)} ${dateCompleted.substring(4, 7)} ${dateCompleted.substring(11, 15)}`;
 
   return (
-    <article className="shadow-lg dark:shadow-none dark:bg-[#1f2a48] mt-4 rounded-lg px-6 py-8 md:p-8">
+    <article className="shadow-lg dark:shadow-none dark:bg-[#1f2a48] mt-4 rounded-lg px-6 py-8 md:p-8 border-[1px] border-gray-100 dark:border-0">
       <section>
         <header className="flex">
           <img
