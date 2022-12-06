@@ -1,46 +1,24 @@
 import { useState } from "react";
 import { BsSearch } from "react-icons/bs";
 import { HiSun, HiMoon } from "react-icons/hi";
-import { iUser } from "./interfaces";
 import Card from "./components/Card";
 import Loader from "./components/Loader";
 import ErrorCard from './components/ErrorCard'
+import { useUserContext } from "./context/UserContext";
 
 const App:React.FC = () => {
-  const [darkMode, setDarkMode] = useState<boolean>(true);
-  const [loader, setLoader] = useState<boolean>(false)
-  const [isError, setIsError] = useState<boolean>(false)
-  const [userData, setUserData] = useState<iUser>();
+  const {theme, handleThemeSwitch, loader, isError, userData, getUser} = useUserContext()
   const [inputContent, setInputContent] = useState<string>()
-
-  const getUser = async (username: string | undefined): Promise<void> => {
-    setIsError(false); 
-    if(username){
-      setLoader(true)
-      try {
-        const response = await fetch(`https://api.github.com/users/${username}`);
-        const data = await response.json(); 
-        setTimeout(()=> {
-          setLoader(false)
-        },1000)
-        if(response.status === 200){
-          setUserData(data);
-        }else{
-          setIsError(true); 
-        }    
-      } catch (error) {
-        setIsError(true);        
-      }
-    } 
-  };
 
   return (
     <>
       <header className="flex flex-col w-full">
         <div className="flex justify-between mb-12 md:mb-4">
           <h1 className="font-semibold text-2xl md:text-xl">devfinder</h1>
-          <button className="flex text-xs items-center font-semibold w-16 justify-between uppercase hover:text-blue-500 text-[#6f82a0] dark:text-white">
-            {darkMode ? "light" : "dark"} {darkMode ? <HiSun className="text-xl" /> : <HiMoon className="text-xl" />}
+          <button className="flex text-xs items-center font-semibold w-16 justify-between uppercase hover:text-blue-500 text-[#6f82a0] dark:text-white"
+            onClick={() => handleThemeSwitch()}
+          >
+            {theme === 'light' ? "light" : "dark"} {theme === 'light' ? <HiSun className="text-xl" /> : <HiMoon className="text-xl" />}
           </button>
         </div>
         <form className="shadow-md dark:shadow-none dark:bg-[#1f2a48] flex items-center rounded-xl" onSubmit={(e) => {

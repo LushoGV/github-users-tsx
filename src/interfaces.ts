@@ -1,16 +1,16 @@
 export interface iCardProps {
   login: string;
-  avatar_url:string;
+  avatar_url: string;
   name: string;
   bio?: string;
-  company?:string;
+  company?: string;
   location?: string;
-  followers?:number;
-  following?:number;
+  followers?: number;
+  following?: number;
   created_at: string;
   public_repos: number;
   html_url: string;
-  twitter_username?: string
+  twitter_username?: string;
 }
 
 export interface iUser {
@@ -46,4 +46,17 @@ export interface iUser {
   following: number;
   created_at: string;
   updated_at: string;
+}
+
+export interface context {
+  theme: string;
+  loader: boolean;
+  isError: boolean;
+  userData: iUser | undefined;
+  getUser: (username: string | undefined) => Promise<void>;
+  handleThemeSwitch: () => any;
+}
+
+export interface ProviderProps {
+  children: JSX.Element | JSX.Element[];
 }
