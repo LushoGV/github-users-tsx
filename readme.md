@@ -1,6 +1,6 @@
 # Github Users
 
-### Github User challenge de [Frontend Mentor](https://www.frontendmentor.io/challenges/github-user-search-app-Q09YOgaH6)
+### Github User Challenge de [Frontend Mentor](https://www.frontendmentor.io/challenges/github-user-search-app-Q09YOgaH6)
 
 # Tecnologías utilizadas
 
